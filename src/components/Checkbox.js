@@ -1,17 +1,24 @@
 import React, { useContext } from "react";
 //Context
-import { checkedContext } from "../context/CheckedContextProvider";
-//Soound 
-import useSound from 'use-sound';
-import sounds from "../assets/sounds.wav"
+import { checklistContext } from "../context/CheckListContextProvider";
+//Soound
+import useSound from "use-sound";
+import sounds from "../assets/sounds.wav";
 
 const Checkbox = ({ id, title }) => {
-  const { toggleChecked } = useContext(checkedContext);
-    const [play] = useSound(sounds)
-    const handleChange = (event) => {
-      play()
+  const { addToContext, removeFromContext } = useContext(checklistContext);
+  const [play] = useSound(sounds);
+  const handleChange = (event) => {
+    play();
+    const checked = event.target.checked;
+    
     let itemInTheList = event.target.value;
-    toggleChecked(itemInTheList);
+
+    if (checked) {
+      addToContext(itemInTheList);
+      return;
+    }
+    removeFromContext(itemInTheList);
   };
 
   return (
