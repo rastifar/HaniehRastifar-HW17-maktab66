@@ -4,7 +4,7 @@ import { checkedContext } from "../context/CheckedContextProvider";
 import Checkbox from "./Checkbox";
 
 const AllItems = () => {
-  const { listItems, addToCheckedItems } = useContext(checkedContext);
+  const { listItems} = useContext(checkedContext);
 
   return (
     <div className="allItems-container">
