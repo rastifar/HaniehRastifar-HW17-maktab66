@@ -10,20 +10,18 @@ const Checkbox = ({ id, title }) => {
   const [play] = useSound(sounds);
   const handleChange = (event) => {
     play();
-    const { checked, value } = event.target
-    // const checked = event.target.checked;    
-    // let itemInTheList = event.target.value;
+    const { checked, value, id } = event.target;
 
     if (checked) {
-      addToContext(value);
+      addToContext({ value, id });
       return;
     }
-    removeFromContext(value);
+    removeFromContext(id);
   };
 
   return (
     <div className="item-list">
-      <input type="checkbox" id={id} value={title} onChange={handleChange} />
+      <input type="checkbox" id={id} value={title} onClick={handleChange} />
       <label>{title}</label>
     </div>
   );

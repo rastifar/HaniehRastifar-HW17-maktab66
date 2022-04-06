@@ -11,7 +11,7 @@ const CheckListContextProvider = ({ children }) => {
       setContextList([...contextList, itemToAdd]);
     },
     removeFromContext: (itemToRemove) => {
-      setContextList(contextList.filter((item) => item !== itemToRemove));
+      setContextList(contextList.filter((item) => item.id !== itemToRemove));
     },
   };
 

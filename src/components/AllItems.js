@@ -22,7 +22,7 @@ const AllItems = () => {
         {/* why does it print 4 times */}
         {/* {listItems.map(item=>(console.log('from allitems:',item)))} */}
         {items.map((item) => (
-          <Checkbox key={item.id} id={item.id} title={item.title} />
+          <Checkbox key={item.id} id={item.id} title={item.title} isChecked={item.checked}/>
         ))}
       </div>
     </div>
