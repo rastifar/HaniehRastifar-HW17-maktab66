@@ -10,15 +10,15 @@ const Checkbox = ({ id, title }) => {
   const [play] = useSound(sounds);
   const handleChange = (event) => {
     play();
-    const checked = event.target.checked;
-    
-    let itemInTheList = event.target.value;
+    const { checked, value } = event.target
+    // const checked = event.target.checked;    
+    // let itemInTheList = event.target.value;
 
     if (checked) {
-      addToContext(itemInTheList);
+      addToContext(value);
       return;
     }
-    removeFromContext(itemInTheList);
+    removeFromContext(value);
   };
 
   return (
